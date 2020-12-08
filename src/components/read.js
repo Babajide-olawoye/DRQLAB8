@@ -14,7 +14,7 @@ export class Read extends React.Component {
             .then(
                 (response) => {
                     //setting movie array to data retrieved
-                    this.setState({ movies: response.data.movies })
+                    this.setState({ movies: response.data })
                 })
             .catch(
                 (error) => { console.log(error) }
