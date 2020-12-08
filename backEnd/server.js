@@ -86,6 +86,25 @@ app.get('/api/movies/:id', (req, res) => {
     movieModel.findById(req.params.id, (err, data) => {
         res.json(data)
     })
+
+})
+
+app.put('/api/movies/:id', (req, res)=>{
+    console.log("Update movie: "+req.params.id);
+    console.log(req.body);
+
+    movieModel.findByIdAndUpdate(req.params.id, req.body, {new: true},
+        (err, data)=>{
+            res.send(data);
+        })
+})
+
+app.delete('/api/movies/:id',(req,res)=>{
+    console.log("Delete movie: "+req.params.id);
+
+    movieModel.findByIdAndDelete(req.params.id,(err,data)=>{
+        res.send(data);
+    })
 })
 
 app.post('/api/movies', (req, res) => {
